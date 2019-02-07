@@ -6,15 +6,15 @@
 class TimelyChangingValue
 {
     double currentValue;
-    double targetValue;
-    std::chrono::microseconds changeDuration;
     double startValue;
+    double targetValue;
     std::chrono::steady_clock::time_point startTime;
+    std::chrono::microseconds changeDuration;
 public:
-    TimelyChangingValue(double theTargetValue, 
-        std::chrono::microseconds theChangeDuration = std::chrono::milliseconds(500));
+    TimelyChangingValue(double initialValue, 
+        std::chrono::microseconds changeDuration = std::chrono::milliseconds(500));
     operator double();
-    TimelyChangingValue& operator= (double theNewTargetValue);
+    TimelyChangingValue& operator= (double newTargetValue);
 };
 
 #endif // TIMELYCHANGINGVALUE_H

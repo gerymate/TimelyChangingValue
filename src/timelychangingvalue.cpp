@@ -2,15 +2,16 @@
 
 using namespace std::chrono;
 
-TimelyChangingValue::TimelyChangingValue(double theTargetValue, std::chrono::microseconds theChangeDuration)
-    : targetValue{theTargetValue}, changeDuration{theChangeDuration}
+TimelyChangingValue::TimelyChangingValue(double initialValue, 
+    std::chrono::microseconds changeDuration)
+    : targetValue{initialValue}, changeDuration{changeDuration}
 {
     currentValue = targetValue;
 }
 
-TimelyChangingValue& TimelyChangingValue::operator=(double theNewTargetValue)
+TimelyChangingValue& TimelyChangingValue::operator=(double newTargetValue)
 {
-    targetValue = theNewTargetValue;
+    targetValue = newTargetValue;
     startValue = currentValue;
     startTime = steady_clock::now();
     return *this;
@@ -25,10 +26,11 @@ TimelyChangingValue::operator double()
 	{
 	    currentValue = targetValue;
 	} else {
-	    microseconds timeElapsed = duration_cast<microseconds>( now - startTime );
+	    microseconds timeElapsed = duration_cast<microseconds>(now - startTime);
 	    currentValue = startValue + ( 
-		((double)timeElapsed.count() / changeDuration.count()) 
-		* (targetValue - startValue) );
+		    ((double)timeElapsed.count() / changeDuration.count()) * 
+            (targetValue - startValue)
+            );
 	}
     }
     return currentValue;
