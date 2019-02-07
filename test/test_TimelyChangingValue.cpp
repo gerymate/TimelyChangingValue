@@ -3,7 +3,7 @@
 
 TEST_CASE("A TimelyChangingValue can be created, initialized and queried.")
 {
-    TimelyChangingValue changingValue { 5.0 };
+    TimelyChangingValue<double> changingValue { 5.0 };
     double queriedValue { changingValue };
 
     REQUIRE( queriedValue == 5.0 );
