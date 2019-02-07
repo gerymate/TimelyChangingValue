@@ -9,7 +9,7 @@ OBJS=$(patsubst src/%.cpp,bin/%.o,$(SOURCES))
 TEST_SOURCES=$(wildcard test/*.cpp)
 MAJOR := 0
 MINOR := 1
-NAME := timelychangingvalue
+NAME := TimelyChangingValue
 VERSION := $(MAJOR).$(MINOR)
 
 all: test lib

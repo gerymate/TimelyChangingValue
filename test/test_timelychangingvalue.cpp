@@ -1,5 +1,5 @@
 #include "doctest.h"
-#include "timelychangingvalue.h"
+#include "TimelyChangingValue.h"
 
 TEST_CASE("A TimelyChangingValue can be created, initialized and queried.")
 {

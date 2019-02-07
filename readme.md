@@ -1,4 +1,4 @@
-# Timely Changing Value
+# TimelyChangingValue
 
 ## A simple value class for making animations and such
 

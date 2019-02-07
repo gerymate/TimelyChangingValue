@@ -1,4 +1,4 @@
-#include "timelychangingvalue.h"
+#include "TimelyChangingValue.h"
 
 using namespace std::chrono;
 
